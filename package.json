@@ -7,17 +7,19 @@
   },
   "scripts": {
     "prebuild": "yon run clean",
-    "build": "tstl",
-    "postbuild": "cd src && copyfiles **/*.* -e **/*.ts ../dist",
+    "build": "cross-var tstl --outDir dist/$npm_package_name_$npm_package_version",
+    "postbuild": "cd src && cross-var copyfiles **/*.* -e **/*.ts ../dist/$npm_package_name_$npm_package_version && cd ../dist && cross-var bestzip $npm_package_name_$npm_package_version.zip $npm_package_name_$npm_package_version",
     "predev": "yon run clean",
     "dev": "cross-var tstl --outDir $DEV_PATH",
     "postdev": "cd src && cross-var copyfiles **/*.* -e **/*.ts $DEV_PATH",
     "clean": "rimraf dist && cross-var rimraf $DEV_PATH",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "test": "node -e (console.log(process.env))"
   },
   "author": "JamDon2",
   "license": "GNU GPLv3",
   "devDependencies": {
+    "bestzip": "^2.2.1",
     "copyfiles": "^2.4.1",
     "cross-var": "^1.1.0",
     "npm-watch": "^0.11.0",
