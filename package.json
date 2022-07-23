@@ -1,0 +1,31 @@
+{
+  "name": "item-race",
+  "version": "1.0.0",
+  "private": true,
+  "watch": {
+    "dev": "src/**/*.*"
+  },
+  "scripts": {
+    "prebuild": "yon run clean",
+    "build": "tstl",
+    "postbuild": "cd src && copyfiles **/*.* -e **/*.ts ../dist",
+    "predev": "yon run clean",
+    "dev": "cross-var tstl --outDir $DEV_PATH",
+    "postdev": "cd src && cross-var copyfiles **/*.* -e **/*.ts $DEV_PATH",
+    "clean": "rimraf dist && cross-var rimraf $DEV_PATH",
+    "watch": "npm-watch"
+  },
+  "author": "JamDon2",
+  "license": "GNU GPLv3",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "cross-var": "^1.1.0",
+    "npm-watch": "^0.11.0",
+    "rimraf": "^3.0.2",
+    "typescript-to-lua": "^1.7.1",
+    "yarn-or-npm": "^3.0.1"
+  },
+  "dependencies": {
+    "typed-factorio": "^1.4.0"
+  }
+}
