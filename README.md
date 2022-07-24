@@ -15,7 +15,7 @@ This mod adds two commands:
 
 -   Add an option for automatically reseting the world after each completed round
 -   Remove duplicates from random item generation
--   Set up GitHub Actions, and Releases
+-   ~~Set up GitHub Actions, and Releases~~
 
 ## Credits
 
