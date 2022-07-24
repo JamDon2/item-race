@@ -1,14 +1,34 @@
-name: Upload
-on:
-    release:
-        types:
-            - "published"
-    workflow_run:
-        workflows:
-            - "Release"
-
+name: Deploy
+on: [workflow_dispatch]
 jobs:
-    deploy:
+    release:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: lts/*
+                  cache: "npm"
+
+            - run: npm ci
+
+            - run: npm run build
+
+            - id: getFileName
+              run: echo "::set-output name=file_name::$(ls dist | grep .zip)"
+
+            - id: getVersion
+              run: echo "::set-output name=version::$(node scripts/version.js)"
+
+            - uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: v${{ steps.getVersion.outputs.version }}
+                  files: "dist/${{ steps.getFileName.outputs.file_name }}"
+
+    upload:
+        needs: [release]
         runs-on: ubuntu-latest
         steps:
             - uses: robinraju/release-downloader@v1.4
