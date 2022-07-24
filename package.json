@@ -6,20 +6,17 @@
     "dev": "src/**/*.*"
   },
   "scripts": {
-    "prebuild": "yon run clean",
-    "build": "cross-var tstl --outDir dist/$npm_package_name_$npm_package_version",
-    "postbuild": "cd src && cross-var copyfiles **/*.* -e **/*.ts ../dist/$npm_package_name_$npm_package_version && cd ../dist && cross-var bestzip $npm_package_name_$npm_package_version.zip $npm_package_name_$npm_package_version",
-    "predev": "yon run clean",
+    "build": "node scripts/build.js",
+    "predev": "node scripts/clean.js dev",
     "dev": "cross-var tstl --outDir $DEV_PATH",
     "postdev": "cd src && cross-var copyfiles **/*.* -e **/*.ts $DEV_PATH",
-    "clean": "rimraf dist && cross-var rimraf $DEV_PATH",
+    "clean": "node scripts/clean.js all",
     "watch": "npm-watch"
   },
   "author": "JamDon2",
   "license": "GNU GPLv3",
   "devDependencies": {
     "bestzip": "^2.2.1",
-    "copyfiles": "^2.4.1",
     "cross-var": "^1.1.0",
     "npm-watch": "^0.11.0",
     "rimraf": "^3.0.2",
@@ -27,6 +24,9 @@
     "yarn-or-npm": "^3.0.1"
   },
   "dependencies": {
+    "archiver": "^5.3.1",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^10.1.0",
     "typed-factorio": "^1.4.0"
   }
 }
