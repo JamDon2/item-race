@@ -1,11 +1,11 @@
-name: Upload to Factorio Mod Portal
+name: Upload
 on:
-    push:
-        tags:
-            - "v*"
     release:
         types:
             - "published"
+    workflow_run:
+        workflows:
+            - "Release"
 
 jobs:
     deploy:
