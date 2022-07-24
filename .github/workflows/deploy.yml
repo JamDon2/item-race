@@ -1,0 +1,32 @@
+name: Deploy to Factorio Mod Portal
+on: [release]
+jobs:
+    deployment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download release files
+              uses: robinraju/release-downloader@v1.4
+              with:
+                  latest: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Get file name
+              id: getFileName
+              run: echo "::set-output name=file_name::$(ls)"
+
+            - name: Get upload URL
+              id: getUploadURL
+              uses: fjogeleit/http-request-action@v1
+              with:
+                  url: "https://mods.factorio.com/api/v2/mods/releases/init_upload"
+                  bearerToken: ${{ secrets.FACTORIO_API_KEY }}
+                  contentType: "application/x-www-form-urlencoded"
+                  data: "mod=item-race"
+
+            - name: Upload file
+              uses: fjogeleit/http-request-action@v1
+              with:
+                  url: ${{ fromJson(steps.getUploadURL.outputs.response).upload_url }}
+                  bearerToken: "458ee12cb7ee.4c7cbe5214bd767901edf7ded0de7113"
+                  contentType: "multiple/form-data"
+                  files: '{"file": "${{ github.workspace }}/${{ steps.getFileName.outputs.file_name }}"}'
