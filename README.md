@@ -14,6 +14,7 @@ This mod adds two commands:
 ## TODO
 
 -   Add an option for automatically reseting the world after each completed round
+-   Remove duplicates from random item generation
 
 ## Credits
 
