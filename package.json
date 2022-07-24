@@ -13,8 +13,7 @@
     "dev": "cross-var tstl --outDir $DEV_PATH",
     "postdev": "cd src && cross-var copyfiles **/*.* -e **/*.ts $DEV_PATH",
     "clean": "rimraf dist && cross-var rimraf $DEV_PATH",
-    "watch": "npm-watch",
-    "test": "node -e (console.log(process.env))"
+    "watch": "npm-watch"
   },
   "author": "JamDon2",
   "license": "GNU GPLv3",
