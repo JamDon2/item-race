@@ -19,7 +19,7 @@ This mod adds two commands:
 
 ## Credits
 
-[**Trupen**](https://www.youtube.com/c/Trupen) - Initial idea and testing.
+[**Trupen**](https://www.youtube.com/c/Trupen) - Initial idea, mod logo, and testing.
 
 ## License
 
