@@ -1,21 +1,18 @@
-name: Deploy to Factorio Mod Portal
+name: Upload to Factorio Mod Portal
 on: [release]
 jobs:
-    deployment:
+    deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Download release files
-              uses: robinraju/release-downloader@v1.4
+            - uses: robinraju/release-downloader@v1.4
               with:
                   latest: true
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ github.token }}
 
-            - name: Get file name
-              id: getFileName
+            - id: getFileName
               run: echo "::set-output name=file_name::$(ls)"
 
-            - name: Get upload URL
-              id: getUploadURL
+            - id: getUploadURL
               uses: fjogeleit/http-request-action@v1
               with:
                   url: "https://mods.factorio.com/api/v2/mods/releases/init_upload"
@@ -23,8 +20,7 @@ jobs:
                   contentType: "application/x-www-form-urlencoded"
                   data: "mod=item-race"
 
-            - name: Upload file
-              uses: fjogeleit/http-request-action@v1
+            - uses: fjogeleit/http-request-action@v1
               with:
                   url: ${{ fromJson(steps.getUploadURL.outputs.response).upload_url }}
                   bearerToken: "458ee12cb7ee.4c7cbe5214bd767901edf7ded0de7113"
