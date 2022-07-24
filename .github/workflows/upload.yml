@@ -1,5 +1,12 @@
 name: Upload to Factorio Mod Portal
-on: [release]
+on:
+    push:
+        tags:
+            - "v*"
+    release:
+        types:
+            - "published"
+
 jobs:
     deploy:
         runs-on: ubuntu-latest
