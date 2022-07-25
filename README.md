@@ -12,12 +12,6 @@ This mod adds two commands:
 
 `/ir:stop` - Stops it.
 
-## TODO
-
--   ~~Add an option for automatically reseting the world after each completed round~~
--   Remove duplicates from random item generation
--   ~~Set up GitHub Actions, and Releases~~
-
 ## Credits
 
 [**Trupen**](https://www.youtube.com/c/Trupen) - Initial idea, mod logo, and testing.
