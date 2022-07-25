@@ -1,8 +1,8 @@
-import items from "./data/items"
+import items, { Item } from "./data/items"
 
 declare const global: { generated: Array<string> }
 
-export function getRandomItem() {
+export function getRandomItem(): Item {
     if (settings.startup["ir:disable-duplicate-items"].value) {
         let uniqueItem
         while (!uniqueItem) {

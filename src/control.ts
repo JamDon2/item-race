@@ -73,7 +73,7 @@ script.on_nth_tick(
     }
 )
 
-function startRound() {
+function startRound(): void {
     const item = getRandomItem()
 
     global.objective = item.name
@@ -93,7 +93,7 @@ function startRound() {
     }
 }
 
-function gameWon(winner: LuaPlayer) {
+function gameWon(winner: LuaPlayer): void {
     game.print(
         ["ir:game-messages.player-won", winner.name, global.roundNumber],
         {
