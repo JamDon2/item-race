@@ -10,6 +10,7 @@
     "predev": "node scripts/clean.js dev",
     "dev": "node scripts/dev.js",
     "clean": "node scripts/clean.js all",
+    "sync-version": "node scripts/sync-version.js",
     "watch": "npm-watch"
   },
   "author": "JamDon2",

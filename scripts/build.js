@@ -3,6 +3,7 @@ const fs = require("fs")
 const fse = require("fs-extra")
 const archiver = require("archiver")
 const path = require("path")
+require("./sync_version")
 
 const package = require("../package.json")
 
