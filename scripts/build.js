@@ -5,9 +5,9 @@ const archiver = require("archiver")
 
 const package = require("../package.json")
 
-spawn("npx", ["tstl", "-outDir", `dist/${package.name}_${package.version}`])
-
 const buildDir = `dist/${package.name}_${package.version}`
+
+spawn("npx", ["tstl", "-outDir", buildDir])
 
 fse.copySync("src/", buildDir, {
     filter: file => !file.endsWith(".ts"),
