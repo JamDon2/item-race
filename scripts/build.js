@@ -2,10 +2,14 @@ const spawn = require("cross-spawn")
 const fs = require("fs")
 const fse = require("fs-extra")
 const archiver = require("archiver")
+const path = require("path")
 
 const package = require("../package.json")
 
-const buildDir = `dist/${package.name}_${package.version}`
+const buildDir = path.join(
+    __dirname,
+    `../dist/${package.name}_${package.version}`
+)
 
 spawn("npx", ["tstl", "-outDir", buildDir])
 
