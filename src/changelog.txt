@@ -4,7 +4,7 @@ Date: 2022.07.24
   Graphics:
     - Added a thumbnail for the mod.
 ---------------------------------------------------------------------------------------------------
-Version: 1.0.2
+Version: 1.1.0
 Date: 2022.07.25
   Features:
     - Added an option for reseting the surface after a win.
