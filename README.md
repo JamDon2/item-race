@@ -1,6 +1,7 @@
 # Item Race
 
 ## Description
+
 Item Race is a fun game inside Factorio for multiplayer saves. Every round you get an item to craft, and the first person to have at least one in their inventory wins.
 
 ## Usage
@@ -13,7 +14,7 @@ This mod adds two commands:
 
 ## TODO
 
--   Add an option for automatically reseting the world after each completed round
+-   ~~Add an option for automatically reseting the world after each completed round~~
 -   Remove duplicates from random item generation
 -   ~~Set up GitHub Actions, and Releases~~
 

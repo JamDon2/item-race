@@ -11,4 +11,16 @@ data.extend([
         maximum_value: 3600,
         setting_type: "startup",
     },
+    {
+        name: "ir:clear-map-on-win",
+        type: "bool-setting",
+        default_value: false,
+        setting_type: "startup",
+    },
+    {
+        name: "ir:clear-items-on-win",
+        type: "bool-setting",
+        default_value: false,
+        setting_type: "startup",
+    },
 ])
