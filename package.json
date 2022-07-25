@@ -8,25 +8,19 @@
   "scripts": {
     "build": "node scripts/build.js",
     "predev": "node scripts/clean.js dev",
-    "dev": "cross-var tstl --outDir $DEV_PATH",
-    "postdev": "cd src && cross-var copyfiles **/*.* -e **/*.ts $DEV_PATH",
+    "dev": "node scripts/dev.js",
     "clean": "node scripts/clean.js all",
     "watch": "npm-watch"
   },
   "author": "JamDon2",
   "license": "GNU GPLv3",
   "devDependencies": {
-    "bestzip": "^2.2.1",
-    "cross-var": "^1.1.0",
-    "npm-watch": "^0.11.0",
-    "rimraf": "^3.0.2",
-    "typescript-to-lua": "^1.7.1",
-    "yarn-or-npm": "^3.0.1"
-  },
-  "dependencies": {
     "archiver": "^5.3.1",
+    "bestzip": "^2.2.1",
     "cross-spawn": "^7.0.3",
     "fs-extra": "^10.1.0",
-    "typed-factorio": "^1.4.0"
+    "npm-watch": "^0.11.0",
+    "typed-factorio": "^1.4.0",
+    "typescript-to-lua": "^1.7.1"
   }
 }
