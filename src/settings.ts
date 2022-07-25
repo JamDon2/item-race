@@ -23,4 +23,10 @@ data.extend([
         default_value: false,
         setting_type: "startup",
     },
+    {
+        name: "ir:disable-duplicate-items",
+        type: "bool-setting",
+        default_value: false,
+        setting_type: "startup",
+    },
 ])
