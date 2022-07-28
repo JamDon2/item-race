@@ -1,5 +1,7 @@
 const spawn = require("cross-spawn")
 const fse = require("fs-extra")
+const path = require("path")
+const { clean } = require("./clean")
 
 function replaceEnv(str) {
     const envKeys = Object.keys(process.env)
@@ -14,6 +16,8 @@ function replaceEnv(str) {
 }
 
 const buildDir = replaceEnv(process.env.DEV_PATH)
+
+clean("dev")
 
 spawn("npx", ["tstl", "-outDir", buildDir])
 
