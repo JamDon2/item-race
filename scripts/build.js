@@ -11,7 +11,7 @@ const buildDir = path.join(
     `../dist/${package.name}_${package.version}`
 )
 
-spawn("npx", ["tstl", "-outDir", buildDir])
+spawn.sync("npx", ["tstl", "-outDir", buildDir])
 
 fse.copySync("src/", buildDir, {
     filter: file => !file.endsWith(".ts"),
